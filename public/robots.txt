@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap (update the host if your production URL is different)
+Sitemap: https://commit-pt-website.vercel.app/sitemap-index.xml

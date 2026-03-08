@@ -1,45 +1,111 @@
 ---
-import '../styles/global.css';
-import TopMenu from '../components/TopMenu.astro';
+import TopMenu from "../components/TopMenu.astro";
+import { SITE, canonicalUrl } from "../lib/seo";
+import "../styles/global.css";
 
 interface Props {
-	lang?: 'en' | 'pt';
-	title?: string;
-	/** Optional class to wrap content in (e.g. "docs-content" for MDX docs). */
-	contentClass?: string;
-	frontmatter?: { lang?: string; title?: string; contentClass?: string };
+  lang?: "en" | "pt";
+  title?: string;
+  /** Meta description for SEO and Open Graph. */
+  description?: string;
+  /** Optional og:image path (e.g. /og-image.png). */
+  image?: string;
+  /** Optional class to wrap content in (e.g. "docs-content" for MDX docs). */
+  contentClass?: string;
+  frontmatter?: {
+    lang?: string;
+    title?: string;
+    description?: string;
+    contentClass?: string;
+  };
 }
-const { lang: propLang, title: propTitle, contentClass: propContentClass, frontmatter } = Astro.props;
+const {
+  lang: propLang,
+  title: propTitle,
+  description: propDescription,
+  image: propImage,
+  contentClass: propContentClass,
+  frontmatter,
+} = Astro.props;
 // MDX passes frontmatter under .frontmatter; .astro pages pass at top level
 const langFromProps = propLang ?? frontmatter?.lang;
-const title = propTitle ?? frontmatter?.title ?? 'CommitPT';
+const title = propTitle ?? frontmatter?.title ?? "CommitPT";
+const description =
+  propDescription ?? frontmatter?.description ?? SITE.description;
+const image = propImage ?? SITE.image;
 const contentClass = propContentClass ?? frontmatter?.contentClass;
-const pathSegment = Astro.url.pathname.split('/').filter(Boolean)[0];
-const lang: 'en' | 'pt' =
-	(langFromProps === 'pt' || langFromProps === 'en' ? langFromProps : null) ??
-	(pathSegment === 'pt' || pathSegment === 'en' ? pathSegment : 'en');
+const pathSegment = Astro.url.pathname.split("/").filter(Boolean)[0];
+const lang: "en" | "pt" =
+  (langFromProps === "pt" || langFromProps === "en" ? langFromProps : null) ??
+  (pathSegment === "pt" || pathSegment === "en" ? pathSegment : "en");
+
+const site = Astro.site?.href ?? "https://commit-pt-website.vercel.app/";
+const canonical = canonicalUrl(Astro.url.pathname, site);
+const pageTitle =
+  title === "CommitPT" ? SITE.title : `CommitPT — ${String(title)}`;
+const ogImage = image.startsWith("http") ? image : canonicalUrl(image, site);
 ---
+
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>CommitPT — {String(title)}</title>
-		<link rel="alternate" hreflang="en" href="/en/" />
-		<link rel="alternate" hreflang="pt" href="/pt/" />
-		<link rel="alternate" hreflang="x-default" href="/en/" />
-	</head>
-	<body>
-		<TopMenu lang={lang} />
-		{contentClass ? (
-			<main class={contentClass}>
-				<slot />
-			</main>
-		) : (
-			<slot />
-		)}
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === "pt" ? "pt_PT" : "en_GB"} />
+    <meta property="og:site_name" content={SITE.name} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {
+      SITE.twitterHandle && (
+        <meta name="twitter:site" content={SITE.twitterHandle} />
+      )
+    }
+    <!-- hreflang (absolute URLs for SEO) -->
+    <link rel="alternate" hreflang="en" href={canonicalUrl("/en/", site)} />
+    <link rel="alternate" hreflang="pt" href={canonicalUrl("/pt/", site)} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={canonicalUrl("/en/", site)}
+    />
+    <!-- JSON-LD: WebSite -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: SITE.name,
+        description: SITE.description,
+        url: site,
+        inLanguage: [lang === "pt" ? "pt-PT" : "en-GB"],
+      })}
+    />
+  </head>
+  <body>
+    <TopMenu lang={lang} />
+    {
+      contentClass ? (
+        <main class={contentClass}>
+          <slot />
+        </main>
+      ) : (
+        <slot />
+      )
+    }
+  </body>
 </html>
