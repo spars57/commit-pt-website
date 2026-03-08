@@ -1,0 +1,12 @@
+---
+import Welcome from "../../components/Welcome.astro";
+import { getTranslations } from "../../i18n";
+import Layout from "../../layouts/Layout.astro";
+
+const lang = "en";
+const t = getTranslations(lang);
+---
+
+<Layout lang={lang} title={t.tagline}>
+  <Welcome t={t} />
+</Layout>

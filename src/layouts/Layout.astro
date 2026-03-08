@@ -1,0 +1,33 @@
+---
+interface Props {
+	lang: 'en' | 'pt';
+	title?: string;
+}
+const { lang, title = 'CommitPT' } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>CommitPT — {title}</title>
+		<link rel="alternate" hreflang="en" href="/en/" />
+		<link rel="alternate" hreflang="pt" href="/pt/" />
+		<link rel="alternate" hreflang="x-default" href="/en/" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

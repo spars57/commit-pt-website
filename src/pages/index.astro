@@ -1,0 +1,32 @@
+---
+/**
+ * Root index: redirects to /en or /pt based on browser language.
+ * Fallback: en. Uses client-side redirect so it works with static build.
+ */
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex" />
+		<title>CommitPT — Redirecting</title>
+		<noscript>
+			<meta http-equiv="refresh" content="0;url=/en/" />
+		</noscript>
+	</head>
+	<body>
+		<p>Redirecting…</p>
+		<script is:inline>
+			(function () {
+				const supported = ['en', 'pt'];
+				const fallback = 'en';
+				const lang = (navigator.language || navigator.languages?.[0] || fallback)
+					.toLowerCase()
+					.split(/[-_]/)[0];
+				const locale = supported.includes(lang) ? lang : fallback;
+				window.location.replace('/' + locale + '/');
+			})();
+		</script>
+	</body>
+</html>
