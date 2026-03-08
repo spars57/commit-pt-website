@@ -1,1 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    @apply m-0 w-full min-h-screen;
+  }
+  body {
+    font-family: Inter, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .docs-content {
+    @apply max-w-3xl mx-auto px-4 py-8;
+  }
+}

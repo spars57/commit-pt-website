@@ -7,4 +7,6 @@ export const en = {
     "We're building something new — check back soon or join us on Discord in the meantime.",
   joinDiscord: 'Join our Discord',
   joinDiscordAria: 'Join CommitPT on Discord',
+  docsTitle: 'Docs',
+  gettingStarted: 'Getting started',
 } as const;

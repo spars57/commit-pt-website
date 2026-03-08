@@ -11,6 +11,8 @@ export interface Translations {
   constructionRest: string;
   joinDiscord: string;
   joinDiscordAria: string;
+  docsTitle: string;
+  gettingStarted: string;
 }
 
 export const translations = { en, pt } as const;
