@@ -1,14 +1,17 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
+import DocsIndexContent from "../../../../components/DocsIndexContent";
 import { getTranslations } from "../../../../i18n";
 
 const lang = "pt";
 const t = getTranslations(lang);
+const items = [
+  { href: "/pt/docs/interview-preparation/example/", label: t.interviewExample },
+];
 ---
 
 <Layout lang={lang} title={t.interviewPreparation}>
   <div class="docs-content">
-    <h1 class="text-2xl font-semibold text-foreground m-0 mb-4">{t.interviewPreparation}</h1>
-    <p class="text-muted-foreground m-0">Conteúdo em breve.</p>
+    <DocsIndexContent client:load title={t.interviewPreparation} items={items} />
   </div>
 </Layout>

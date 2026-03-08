@@ -14,6 +14,7 @@ export interface Translations {
   docsTitle: string;
   gettingStarted: string;
   interviewPreparation: string;
+  interviewExample: string;
   programming: string;
   cybersecurity: string;
 }

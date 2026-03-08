@@ -10,6 +10,7 @@ export const pt = {
   docsTitle: 'Documentação',
   gettingStarted: 'Começar',
   interviewPreparation: 'Preparação para Entrevistas',
+  interviewExample: 'Perguntas de entrevista com exemplos',
   programming: 'Programação',
   cybersecurity: 'Cibersegurança',
 } as const;

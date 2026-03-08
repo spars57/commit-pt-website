@@ -10,6 +10,7 @@ export const en = {
   docsTitle: 'Docs',
   gettingStarted: 'Getting started',
   interviewPreparation: 'Interview Preparation',
+  interviewExample: 'Common interview questions',
   programming: 'Programming',
   cybersecurity: 'Cybersecurity',
 } as const;
