@@ -1,23 +1,20 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import { getTranslations } from '../../../i18n';
+import DocsIndexContent from "../../../components/DocsIndexContent";
+import { getTranslations } from "../../../i18n";
+import Layout from "../../../layouts/Layout.astro";
 
-const lang = 'en';
+const lang = "en";
 const t = getTranslations(lang);
+const items = [
+  { href: "/en/docs/getting-started/", label: t.gettingStarted },
+  { href: "/en/docs/interview-preparation/", label: t.interviewPreparation },
+  { href: "/en/docs/programming/", label: t.programming },
+  { href: "/en/docs/cybersecurity/", label: t.cybersecurity },
+];
 ---
 
 <Layout lang={lang} title={t.docsTitle}>
-  <div class="max-w-3xl mx-auto px-4 py-8">
-    <h1 class="text-2xl text-gray-900 m-0 mb-6">{t.docsTitle}</h1>
-    <ul class="list-none m-0 p-0">
-      <li>
-        <a
-          class="block py-3 text-gray-600 no-underline border-b border-black/5 hover:text-gray-900"
-          href="/en/docs/getting-started/"
-        >
-          {t.gettingStarted}
-        </a>
-      </li>
-    </ul>
+  <div class="docs-content">
+    <DocsIndexContent client:load title={t.docsTitle} items={items} />
   </div>
 </Layout>

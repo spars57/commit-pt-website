@@ -9,4 +9,7 @@ export const pt = {
   joinDiscordAria: 'Junta-te ao CommitPT no Discord',
   docsTitle: 'Documentação',
   gettingStarted: 'Começar',
+  interviewPreparation: 'Preparação para Entrevistas',
+  programming: 'Programação',
+  cybersecurity: 'Cibersegurança',
 } as const;

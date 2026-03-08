@@ -7,12 +7,17 @@ interface Props {
 	title?: string;
 	/** Optional class to wrap content in (e.g. "docs-content" for MDX docs). */
 	contentClass?: string;
+	frontmatter?: { lang?: string; title?: string; contentClass?: string };
 }
-const { lang: propLang, title = 'CommitPT', contentClass } = Astro.props;
-// Derive lang from URL when not passed (e.g. from MDX frontmatter)
+const { lang: propLang, title: propTitle, contentClass: propContentClass, frontmatter } = Astro.props;
+// MDX passes frontmatter under .frontmatter; .astro pages pass at top level
+const langFromProps = propLang ?? frontmatter?.lang;
+const title = propTitle ?? frontmatter?.title ?? 'CommitPT';
+const contentClass = propContentClass ?? frontmatter?.contentClass;
 const pathSegment = Astro.url.pathname.split('/').filter(Boolean)[0];
-const lang =
-	propLang ?? (pathSegment === 'pt' || pathSegment === 'en' ? pathSegment : 'en');
+const lang: 'en' | 'pt' =
+	(langFromProps === 'pt' || langFromProps === 'en' ? langFromProps : null) ??
+	(pathSegment === 'pt' || pathSegment === 'en' ? pathSegment : 'en');
 ---
 <!doctype html>
 <html lang={lang}>
@@ -22,7 +27,7 @@ const lang =
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>CommitPT — {title}</title>
+		<title>CommitPT — {String(title)}</title>
 		<link rel="alternate" hreflang="en" href="/en/" />
 		<link rel="alternate" hreflang="pt" href="/pt/" />
 		<link rel="alternate" hreflang="x-default" href="/en/" />

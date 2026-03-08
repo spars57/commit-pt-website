@@ -13,6 +13,9 @@ export interface Translations {
   joinDiscordAria: string;
   docsTitle: string;
   gettingStarted: string;
+  interviewPreparation: string;
+  programming: string;
+  cybersecurity: string;
 }
 
 export const translations = { en, pt } as const;
