@@ -1,17 +1,27 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
 import DocsIndexContent from "../../../../components/DocsIndexContent";
+import NotionPage from "../../../../components/NotionPage";
 import { getTranslations } from "../../../../i18n";
+import { getNotionPage, NOTION_INTERVIEW_PAGE_ID } from "../../../../lib/notion";
 
 const lang = "pt";
 const t = getTranslations(lang);
 const items = [
   { href: "/pt/docs/interview-preparation/example/", label: t.interviewExample },
 ];
+
+const notionData = NOTION_INTERVIEW_PAGE_ID
+  ? await getNotionPage(NOTION_INTERVIEW_PAGE_ID)
+  : null;
 ---
 
 <Layout lang={lang} title={t.interviewPreparation}>
   <div class="docs-content">
-    <DocsIndexContent client:load title={t.interviewPreparation} items={items} />
+    {notionData ? (
+      <NotionPage client:load recordMap={notionData.recordMap} rootPageId={notionData.rootPageId} />
+    ) : (
+      <DocsIndexContent client:load title={t.interviewPreparation} items={items} />
+    )}
   </div>
 </Layout>
