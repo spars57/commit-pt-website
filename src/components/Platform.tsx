@@ -118,7 +118,7 @@ export default function Platform() {
             </div>
 
             <a
-              href="https://discord.gg/your-invite"
+              href="https://discord.gg/yGAbprCBrT"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-md border border-git-add px-5 py-2.5 text-sm font-semibold text-git-add hover:bg-git-add hover:text-ink transition-colors"

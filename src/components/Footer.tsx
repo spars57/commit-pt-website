@@ -16,7 +16,7 @@ export default function Footer() {
               How it works
             </a>
             <a
-              href="https://whop.com/commitpt-709e/commit-plus/"
+              href="https://whop.com/commitpt-709e/commit-plus"
               target="_blank"
               rel="noreferrer"
               className="hover:text-git-add"
@@ -24,7 +24,7 @@ export default function Footer() {
               Whop
             </a>
             <a
-              href="https://discord.gg/your-invite"
+              href="https://discord.gg/yGAbprCBrT"
               target="_blank"
               rel="noreferrer"
               className="hover:text-git-add"
