@@ -200,8 +200,8 @@ Sections use `01 //`, `02 //`, etc. as monospaced labels above the heading.
 
 ### CTA rules
 
-- Whop link placeholder: `https://whop.com/` — replace when real URL is known
-- Discord link placeholder: `https://discord.gg/your-invite` — replace when real invite is known
+- Whop link: `https://whop.com/commitpt-709e/commit-plus`
+- Discord link: `https://discord.gg/yGAbprCBrT`
 - Never remove or hide Whop as the primary CTA; it's the revenue conversion point
 - `target="_blank" rel="noreferrer"` on all external links
 

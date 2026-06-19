@@ -63,7 +63,7 @@ export default function Features() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="https://whop.com/"
+              href="https://whop.com/commitpt-709e/commit-plus"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
@@ -72,7 +72,7 @@ export default function Features() {
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="https://discord.gg/your-invite"
+              href="https://discord.gg/yGAbprCBrT"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-ink px-6 py-3 text-sm font-semibold text-text-primary hover:border-git-add hover:text-git-add transition-colors"
