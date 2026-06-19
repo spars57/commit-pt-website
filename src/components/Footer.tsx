@@ -10,26 +10,16 @@ export default function Footer() {
           </a>
           <div className="flex items-center gap-6 text-sm text-muted">
             <a href="#about" className="hover:text-git-add">
-              About
+              Benefits
             </a>
             <a href="#features" className="hover:text-git-add">
               How it works
             </a>
-            <a
-              href="https://whop.com/commitpt-709e/commit-plus"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-git-add"
-            >
-              Whop
+            <a href="#platform" className="hover:text-git-add">
+              Platform
             </a>
-            <a
-              href="https://discord.gg/yGAbprCBrT"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-git-add"
-            >
-              Discord
+            <a href="#team" className="hover:text-git-add">
+              About
             </a>
           </div>
           <div className="flex items-center gap-4">

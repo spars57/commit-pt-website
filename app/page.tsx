@@ -3,6 +3,7 @@ import Hero from '@/src/components/Hero'
 import About from '@/src/components/About'
 import Features from '@/src/components/Features'
 import Platform from '@/src/components/Platform'
+import Team from '@/src/components/Team'
 import Footer from '@/src/components/Footer'
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <About />
         <Features />
         <Platform />
+        <Team />
       </main>
       <Footer />
     </div>
