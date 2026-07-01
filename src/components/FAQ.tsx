@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
 
 interface FaqItem {
   q: string
@@ -35,15 +35,16 @@ const faqs: FaqItem[] = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ limit }: { limit?: number } = {}) {
   const [open, setOpen] = useState<number | null>(null)
+  const visibleFaqs = limit !== undefined ? faqs.slice(0, limit) : faqs
 
   return (
     <section id="faq" className="border-t border-border bg-ink-light">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
           <span className="font-mono text-sm font-bold text-git-amber">
-            06 // Perguntas Frequentes
+            05 // Perguntas Frequentes
           </span>
           <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
             Tens dúvidas. Temos respostas.
@@ -53,7 +54,7 @@ export default function FAQ() {
           </p>
         </div>
         <div className="max-w-3xl">
-          {faqs.map((faq, i) => (
+          {visibleFaqs.map((faq, i) => (
             <div key={i} className="border-t border-border">
               <button
                 className="flex w-full items-center justify-between py-4 text-left text-sm font-semibold text-text-primary hover:text-git-add transition-colors"
@@ -68,6 +69,17 @@ export default function FAQ() {
               {open === i && <p className="pb-4 text-sm leading-relaxed text-muted">{faq.a}</p>}
             </div>
           ))}
+          {limit !== undefined && (
+            <div className="mt-8 border-t border-border pt-6">
+              <a
+                href="/faq"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-git-add hover:underline"
+              >
+                Ver FAQ completa
+                <ArrowRight size={14} />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>

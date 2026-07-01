@@ -9,11 +9,11 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: 'Benefícios', href: '/#about' },
-  { label: 'Como funciona', href: '/#features' },
-  { label: 'O Fundador', href: '/#team' },
-  { label: 'FAQ', href: '/#faq' },
-  { label: 'Contribuidores', href: '/contributors' },
+  { label: 'Sobre', href: '/about' },
+  { label: 'Equipa', href: '/team' },
+  { label: 'Projetos', href: '/projects' },
+  { label: 'Eventos', href: '/events' },
+  { label: 'FAQ', href: '/faq' },
 ]
 
 export default function Header() {

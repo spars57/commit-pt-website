@@ -35,22 +35,37 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-6 border-t border-border pt-8 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-6 text-sm text-muted">
-            <a href="#about" className="hover:text-git-add transition-colors">
-              Benefícios
-            </a>
-            <a href="#features" className="hover:text-git-add transition-colors">
-              Como funciona
-            </a>
-            <a href="#team" className="hover:text-git-add transition-colors">
-              O Fundador
-            </a>
-            <a href="#faq" className="hover:text-git-add transition-colors">
-              FAQ
-            </a>
+        <div className="flex flex-col items-start justify-between gap-8 border-t border-border pt-8 sm:flex-row">
+          <div className="grid grid-cols-2 gap-x-12 gap-y-3 text-sm text-muted">
+            <div className="flex flex-col gap-3">
+              <span className="font-mono text-xs text-muted">Comunidade</span>
+              <a href="/about" className="hover:text-git-add transition-colors">
+                Sobre
+              </a>
+              <a href="/team" className="hover:text-git-add transition-colors">
+                Equipa
+              </a>
+              <a href="/contributors" className="hover:text-git-add transition-colors">
+                Contribuidores
+              </a>
+            </div>
+            <div className="flex flex-col gap-3">
+              <span className="font-mono text-xs text-muted">Recursos</span>
+              <a href="/projects" className="hover:text-git-add transition-colors">
+                Projetos
+              </a>
+              <a href="/events" className="hover:text-git-add transition-colors">
+                Eventos
+              </a>
+              <a href="/faq" className="hover:text-git-add transition-colors">
+                FAQ
+              </a>
+              <a href="/reviews" className="hover:text-git-add transition-colors">
+                Reviews
+              </a>
+            </div>
           </div>
-          <p className="text-xs text-muted">
+          <p className="text-xs text-muted sm:self-end">
             © {new Date().getFullYear()} CommitPT. Construído para devs que fazem ship.
           </p>
         </div>

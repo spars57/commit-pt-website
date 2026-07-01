@@ -1,4 +1,4 @@
-import { ArrowRight, Users, MessageCircle, Rocket, LucideIcon } from 'lucide-react'
+import { Users, MessageCircle, Rocket, LucideIcon } from 'lucide-react'
 
 interface Step {
   number: string
@@ -33,7 +33,7 @@ export default function Features() {
     <section id="features" className="relative bg-ink-light">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-16 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">03 // Como Funciona</span>
+          <span className="font-mono text-sm font-bold text-git-amber">02 // Como Funciona</span>
           <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
             Como funciona na prática.
           </h2>
@@ -55,37 +55,6 @@ export default function Features() {
               </div>
             </div>
           ))}
-        </div>
-        <div
-          id="join"
-          className="mt-20 rounded-lg border border-border bg-ink-light p-8 text-center lg:p-12"
-        >
-          <h3 className="text-2xl font-bold text-text-primary sm:text-3xl">
-            Dá hoje o primeiro passo rumo à vida dos teus sonhos.
-          </h3>
-          <p className="mx-auto mt-3 max-w-xl text-muted">
-            Junta-te às mais de 250 pessoas que já fazem parte da comunidade.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href="https://whop.com/commitpt-709e/commit-plus"
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink hover:bg-git-add-hover transition-colors"
-            >
-              Adere já
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="https://discord.gg/yGAbprCBrT"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-ink px-6 py-3 text-sm font-semibold text-text-primary hover:border-git-add hover:text-git-add transition-colors"
-            >
-              <MessageCircle size={16} />
-              Experimenta o Discord Grátis
-            </a>
-          </div>
         </div>
       </div>
     </section>

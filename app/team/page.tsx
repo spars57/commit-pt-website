@@ -6,33 +6,31 @@ import contributorsData from '@/src/contributors.json'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contribuidores — CommitPT | Programadores a Construir em Público',
+  title: 'Equipa & Contribuidores — CommitPT',
   description:
-    'Mais de 20 contribuidores ativos na CommitPT — a fazer code reviews, workshops e sessões de co-working. Conhece quem está por trás da comunidade de programadores portuguesa.',
-  alternates: {
-    canonical: 'https://www.commitpt.com/contributors',
-  },
+    'Conhece os programadores por trás da CommitPT. Contribuidores, mentores e builders que constroem em público e tornam a comunidade possível.',
+  alternates: { canonical: 'https://www.commitpt.com/team' },
   openGraph: {
     type: 'website',
-    url: 'https://www.commitpt.com/contributors',
-    title: 'Contribuidores — CommitPT | Programadores a Construir em Público',
+    url: 'https://www.commitpt.com/team',
+    title: 'Equipa & Contribuidores — CommitPT',
     description:
-      'Os programadores que tornam a CommitPT possível. Code reviews, workshops e construção em público.',
+      'Os programadores por trás da CommitPT. Contribuidores que constroem em público todos os dias.',
     siteName: 'CommitPT',
     images: [{ url: '/commit_3.png', width: 512, height: 512, alt: 'CommitPT' }],
     locale: 'pt_PT',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contribuidores — CommitPT | Programadores a Construir em Público',
-    description: 'Os programadores por trás da CommitPT — a construir em público todos os dias.',
+    title: 'Equipa & Contribuidores — CommitPT',
+    description: 'Os programadores por trás da CommitPT — contribuidores e builders.',
     images: ['/commit_3.png'],
   },
 }
 
 const contributors: Contributor[] = contributorsData
 
-export default function ContributorsPage() {
+export default function TeamPage() {
   return (
     <div className="min-h-screen bg-ink">
       <Header />
@@ -40,32 +38,19 @@ export default function ContributorsPage() {
         <section className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
             <span className="font-mono text-sm font-bold text-git-amber">
-              {'// Contribuidores'}
+              {'// Equipa & Contribuidores'}
             </span>
             <h1 className="mt-3 text-4xl font-bold text-text-primary sm:text-5xl">
               As pessoas por trás da CommitPT.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted">
-              Mais de 20 programadores que contribuem ativamente — com code reviews, workshops,
-              sessões de co-working e muito mais. Aqui podes conhecê-los, ver o seu trabalho e
-              contactá-los diretamente.
+              Contribuidores, mentores e builders que tornam a comunidade possível. Cada um deles
+              construiu em público dentro da CommitPT.
             </p>
-
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-muted">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-git-add opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-git-add"></span>
-              </span>
-              20+ contribuidores ativos
-            </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-          <p className="mb-8 font-mono text-sm text-muted">
-            A mostrar os <span className="text-git-add">top {contributors.length}</span>{' '}
-            contribuidores
-          </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {contributors.map((contributor) => (
               <ContributorCard key={contributor.githubUsername} contributor={contributor} />

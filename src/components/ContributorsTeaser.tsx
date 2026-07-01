@@ -10,7 +10,7 @@ export default function ContributorsTeaser() {
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
-            <span className="font-mono text-sm font-bold text-git-amber">07 // Contributors</span>
+            <span className="font-mono text-sm font-bold text-git-amber">06 // Contributors</span>
             <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
               Pessoas reais a construir em público.
             </h2>

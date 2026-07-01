@@ -1,14 +1,13 @@
 import Header from '@/src/components/Header'
 import Hero from '@/src/components/Hero'
 import Stats from '@/src/components/Stats'
-import ForWho from '@/src/components/ForWho'
-import About from '@/src/components/About'
-import Inside from '@/src/components/Inside'
+import BenefitsGrid from '@/src/components/BenefitsGrid'
 import Features from '@/src/components/Features'
-import Team from '@/src/components/Team'
+import CommunityProjects from '@/src/components/CommunityProjects'
 import SocialProof from '@/src/components/SocialProof'
 import ContributorsTeaser from '@/src/components/ContributorsTeaser'
 import FAQ from '@/src/components/FAQ'
+import FinalCTA from '@/src/components/FinalCTA'
 import Footer from '@/src/components/Footer'
 
 export default function Home() {
@@ -18,14 +17,13 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <ForWho />
-        <About />
-        <Inside />
+        <BenefitsGrid />
         <Features />
-        <Team />
-        <SocialProof />
+        <CommunityProjects />
+        <SocialProof limit={3} />
         <ContributorsTeaser />
-        <FAQ />
+        <FAQ limit={3} />
+        <FinalCTA />
       </main>
       <Footer />
     </div>
